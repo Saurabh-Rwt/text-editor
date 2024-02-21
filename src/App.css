@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.text-editor{
+  border: 1px solid #eee;
+  width: 50%;
+  margin: 80px auto;
+}
+
+.text-editor .header{
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+}
+
+.text-editor .body .text-area{
+  padding: 15px 20px;
+  height: 120px;
+}
+
+.text-editor .body .text-area:focus-visible{
+ outline: 0; 
+}
+
+.post-card{
+  width: 33%;
+  margin: 0 15px;
+  display: inline-block;
+}
+
+.text-editor .header button{
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.text-editor .header button img{
+  height: 18px;
 }

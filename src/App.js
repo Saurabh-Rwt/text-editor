@@ -1,24 +1,24 @@
+import React, { useState, useContext, createContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TextEditor from './Component/text-editor';
+import Home from './Component/Home/index'
+// const myContext = createContext('');
 
 function App() {
+  
+  // const [counter, setCounter] = useState('0');
+  
+  // const getData = (data)=>{
+  //   console.log(data)
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <TextEditor />
+      // <myContext.provider value={counter}>
+      //   <Home getData={getData}/>
+      // </myContext.provider>
+        // <Home/>
+      
   );
 }
 
