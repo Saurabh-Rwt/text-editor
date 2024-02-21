@@ -6,11 +6,12 @@ import centerIcon from '../assets/images/icons/center-align.png';
 const TextEditor = () => {
 
     const [textValue, setTextValue] = useState('');
+    const [alignment, setAlignment] = useState('');
     const divRef = useRef(null);
+
     const handleInput = () => {
         const newTextValue = divRef.current.innerText;
         setTextValue(newTextValue);
-        // console.log(newTextValue);
     }
 
     const handleBold = () => {
@@ -32,19 +33,8 @@ const TextEditor = () => {
         divRef.current.innerHTML = newText;
     }    
 
-    const handleLeft = () => {
-        const currentTxt = divRef.current;
-        currentTxt.style.textAlign = 'left';
-    }
-
-    const handleCenter = () => {
-        const currentTxt = divRef.current;
-        currentTxt.style.textAlign = 'center';
-    }
-
-    const handleRight = () => {
-        const currentTxt = divRef.current;
-        currentTxt.style.textAlign = 'right';
+    const handleAlignment = (alignment) => {
+        setAlignment(alignment);
     }
 
     return (
@@ -54,18 +44,18 @@ const TextEditor = () => {
                     <button className='bold' onClick={handleBold}>B</button>
                     <button className="italic" onClick={handleItalic}>I</button>
                     <button className="underline" onClick={handleUnderline}>U</button>
-                    <button className="text-left" onClick={handleLeft}>
+                    <button className="text-left" onClick={()=>handleAlignment('left')}>
                         <img src={leftIcon} alt="" />
                     </button>
-                    <button className="text-center" onClick={handleCenter}>
+                    <button className="text-center" onClick={()=>handleAlignment('center')}>
                         <img src={centerIcon} alt="" />
                     </button>
-                    <button className="text-right" onClick={handleRight}>
+                    <button className="text-right" onClick={()=>handleAlignment('right')}>
                         <img src={rightIcon} alt="" />
                     </button>
                 </div>
                 <div className="body">
-                    <div className='text-area' ref={divRef} onBlur={handleInput} contentEditable></div>
+                    <div className='text-area' ref={divRef} onBlur={handleInput}  style={{ textAlign: alignment }} contentEditable></div>
                 </div>
             </div>
         </>
